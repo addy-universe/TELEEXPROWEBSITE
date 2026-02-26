@@ -1,13 +1,50 @@
 /**
- * Teleexpro - Main JavaScript
- * Handles smooth scrolling animations and the Canvas Image Sequence Renderer
+ * Teleexpro — Main JavaScript
+ * Handles scroll animations, navbar effects, and UI interactions.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initNavbarScrolled();
     initShutterText();
+    initMobileMenu();
+    initHeroFade();
 });
+
+/* =========================================================================
+   Mobile Menu Toggle
+   ========================================================================= */
+function initMobileMenu() {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const navbar = document.querySelector('.navbar');
+    if (!menuBtn || !navLinks) return;
+
+    // Toggle open/close on hamburger click
+    menuBtn.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('nav-open');
+        menuBtn.classList.toggle('is-open', isOpen);
+        menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu when any nav link is tapped
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('nav-open');
+            menuBtn.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', false);
+        });
+    });
+
+    // Close when clicking outside the navbar
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target)) {
+            navLinks.classList.remove('nav-open');
+            menuBtn.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', false);
+        }
+    });
+}
 
 /* =========================================================================
    Shutter Brand Text — TELEEXPRO animated reveal
@@ -105,6 +142,34 @@ function initScrollAnimations() {
 }
 
 /* =========================================================================
+   Hero Video Fade Out
+   ========================================================================= */
+function initHeroFade() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        setTimeout(initHeroFade, 100);
+        return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const heroVideo = document.getElementById('video-container');
+    const heroSection = document.getElementById('hero');
+
+    if (heroVideo && heroSection) {
+        gsap.to(heroVideo, {
+            scrollTrigger: {
+                trigger: heroSection,
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            },
+            opacity: 0,
+            ease: "none"
+        });
+    }
+}
+
+/* =========================================================================
    Newsletter Form Submission
    ========================================================================= */
 function handleNewsletterSubmit(e) {
@@ -127,3 +192,5 @@ function handleNewsletterSubmit(e) {
         form.reset();
     }, 6000);
 }
+
+/* End of main.js */

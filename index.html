@@ -4,9 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teleexpro - Empowering Remote Talent</title>
+    <title>Teleexpro — Empowering Remote Talent | BPO Solutions</title>
     <meta name="description"
-        content="Teleexpro builds high-performance remote teams and scalable BPO solutions worldwide.">
+        content="Teleexpro builds high-performance remote teams and scalable BPO solutions worldwide. Customer support, telecalling, lead generation, and back office operations.">
+    <meta name="theme-color" content="#030A14">
+
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:title" content="Teleexpro — Empowering Remote Talent">
+    <meta property="og:description"
+        content="Remote-first BPO infrastructure company bridging exceptional global talent with forward-thinking businesses.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://teleexpro.in">
 
     <!-- Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +37,9 @@
             Your browser does not support the video tag.
         </video>
     </div>
+
+    <!-- 3D Interactive Background (Three.js WebGL) -->
+    <canvas class="webgl-canvas" id="webglCanvas"></canvas>
 
     <!-- Main Content wrapper, sits above the canvas background -->
     <main class="content-wrapper">
@@ -75,31 +86,32 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="about section bg-darker">
-            <div class="container">
-                <div class="section-header reveal-up">
-                    <h2 class="section-title">Infrastructure for the <span class="highlight">Future</span></h2>
-                    <p class="section-description">Teleexpro is a remote-first BPO infrastructure company dedicated to
-                        bridging the gap between exceptional global talent and forward-thinking businesses.</p>
-                </div>
+        <!-- About Section — Floating over 3D Background -->
+        <section id="about" class="about section">
+            <div class="container about-container">
+                <div class="about-content reveal-up">
+                    <p class="about-eyebrow">TELEEXPRO &bull; WHO WE ARE</p>
+                    <h2 class="section-title text-white">Infrastructure for the <span class="highlight">Future</span>
+                    </h2>
+                    <p class="section-description text-light">Teleexpro is a remote-first BPO infrastructure company
+                        dedicated to bridging the gap between exceptional global talent and forward-thinking businesses.
+                    </p>
 
-                <div class="founder-grid">
-                    <div class="glass-card founder-card reveal-up">
-                        <div class="founder-info">
-                            <h3>Aryan Jha</h3>
-                            <p class="role">Founder</p>
+                    <div class="about-founders mt-8">
+                        <div class="founder-card">
+                            <span class="founder-name">Aryan Jha</span>
+                            <span class="founder-role">Founder</span>
                         </div>
-                    </div>
-                    <div class="glass-card founder-card reveal-up delay-1">
-                        <div class="founder-info">
-                            <h3>Prashant Kumar</h3>
-                            <p class="role">Co-Founder</p>
+                        <div class="founder-divider"></div>
+                        <div class="founder-card">
+                            <span class="founder-name">Prashant Kumar</span>
+                            <span class="founder-role">Co-Founder</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- Work From Home Section (High Priority) -->
         <section id="wfh" class="wfh section">
@@ -160,28 +172,69 @@
 
                 <div class="services-grid">
                     <div class="glass-card service-card reveal-up">
-                        <div class="service-icon support-icon"></div>
+                        <div class="service-icon support-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z" />
+                                <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+                            </svg>
+                        </div>
                         <h3>Customer Support</h3>
                         <p>Deliver exceptional 24/7 omni-channel support to enhance customer satisfaction.</p>
                     </div>
                     <div class="glass-card service-card reveal-up delay-1">
-                        <div class="service-icon sales-icon"></div>
-                        <h3>Telecalling & Sales</h3>
+                        <div class="service-icon sales-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6 6l1.27-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                                <polyline points="16 2 20 2 20 6" />
+                                <line x1="14.5" y1="7.5" x2="20" y2="2" />
+                            </svg>
+                        </div>
+                        <h3>Telecalling &amp; Sales</h3>
                         <p>Boost your revenue with specialized outbound and inbound sales professionals.</p>
                     </div>
                     <div class="glass-card service-card reveal-up delay-2">
-                        <div class="service-icon lead-icon"></div>
+                        <div class="service-icon lead-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <circle cx="12" cy="12" r="6" />
+                                <circle cx="12" cy="12" r="2" />
+                                <line x1="12" y1="2" x2="12" y2="4" />
+                                <line x1="12" y1="20" x2="12" y2="22" />
+                                <line x1="2" y1="12" x2="4" y2="12" />
+                                <line x1="20" y1="12" x2="22" y2="12" />
+                            </svg>
+                        </div>
                         <h3>Lead Generation</h3>
                         <p>Targeted B2B and B2C lead generation to fill your sales pipeline.</p>
                     </div>
                     <div class="glass-card service-card reveal-up">
-                        <div class="service-icon ops-icon"></div>
+                        <div class="service-icon ops-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" />
+                                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                                <line x1="12" y1="12" x2="12" y2="16" />
+                                <line x1="10" y1="14" x2="14" y2="14" />
+                            </svg>
+                        </div>
                         <h3>Back Office Operations</h3>
                         <p>Streamline your administrative tasks, data entry, and operational workflows.</p>
                     </div>
                     <div class="glass-card service-card reveal-up delay-1">
-                        <div class="service-icon data-icon"></div>
-                        <h3>Data & CRM Handling</h3>
+                        <div class="service-icon data-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                            </svg>
+                        </div>
+                        <h3>Data &amp; CRM Handling</h3>
                         <p>Secure and efficient management of your critical business data and customer records.</p>
                     </div>
                 </div>
@@ -280,6 +333,15 @@
         </div>
     </footer>
 
+    <!-- GSAP + ScrollTrigger (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <!-- Three.js (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="three_scene.js"></script>
     <script src="main.js"></script>
 </body>
 
